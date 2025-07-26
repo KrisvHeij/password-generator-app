@@ -1,29 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Password generator app</title>
-</head>
-<body>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-  Password Generator
-
-  P4$5W0rD!
-
-  Character Length
-
-  Include Uppercase Letters
-  Include Lowercase Letters
-  Include Numbers
-  Include Symbols
-
-  Strength
-
-  Generate
-
-</body>
+    <title>Frontend Mentor | Password generator app</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1 class="title">Password Generator</h1>
+      <div class="output-container">
+        <p class="password">P4$5W0rD!</p>
+        <span class="copy-text">COPIED</span>
+        <button class="copy-btn" type="button">
+          <img src="./assets/images/icon-copy.svg" alt="" />
+        </button>
+      </div>
+      <div class="options-container">
+        <div class="character-length">
+          <label for="char-length">Character Length</label>
+          <span class="length-number">0</span>
+          <input
+            id="char-length"
+            class="length-input"
+            name="char-length"
+            type="range"
+            value="0"
+            min="0"
+            max="20"
+            step="1"
+          />
+        </div>
+        <div class="password-options">
+          <div class="option">
+            <input id="uppercase" name="uppercase" type="checkbox" />
+            <label for="uppercase">Include Uppercase Letters</label>
+          </div>
+          <div class="option">
+            <input id="lowercase" name="lowercase" type="checkbox" />
+            <label for="lowercase">Include Lowercase Letters</label>
+          </div>
+          <div class="option">
+            <input id="numbers" name="numbers" type="checkbox" />
+            <label for="numbers">Include Numbers</label>
+          </div>
+          <div class="option">
+            <input id="symbols" name="symbols" type="checkbox" />
+            <label for="symbols">Include Symbols</label>
+          </div>
+        </div>
+        <div class="strength-container">
+          <p>Strength</p>
+          <div class="strength-display">
+            <span class="level-text"></span>
+            <div class="strength-levels">
+              <div class="level"></div>
+              <div class="level"></div>
+              <div class="level"></div>
+              <div class="level"></div>
+            </div>
+          </div>
+        </div>
+        <button class="btn" type="button">
+          Generate
+          <img src="./assets/images/icon-arrow-right.svg" alt="" />
+        </button>
+      </div>
+    </main>
+  </body>
 </html>
