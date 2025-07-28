@@ -1,4 +1,24 @@
+@layer global {
+  
+}
 
+@layer colors {
+  :root {
+    --c-white: hsl(0 100% 100%);
+    --c-black: hsl(0 0% 0%);
+    --c-grey-950: hsl(255 22% 4%);
+    --c-grey-900: hsl(248 17% 9%);
+    --c-grey-850: hsl(248 15% 11%);
+    --c-grey-800: hsl(248 10% 15%);
+    --c-grey-700: hsl(248 5% 34%);
+    --c-grey-600: hsl(251 9% 53%);
+    --c-grey-200: hsl(252 11% 91%);
+    --c-green: hsl(127 100% 82%);
+    --c-yellow: hsl(42 91% 68%);
+    --c-orange: hsl(13 95% 66%);
+    --c-red: hsl(0 91% 63%);
+  }
+}
 /* .jetbrains-mono-<uniquifier> {
   font-family: "JetBrains Mono", monospace;
   font-optical-sizing: auto;
