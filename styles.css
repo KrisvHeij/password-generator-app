@@ -3,12 +3,19 @@
   *::before,
   *::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
   body {
     font-family: "JetBrains Mono", monospace;
     font-weight: 700;
     height: 100vh;
+    background: linear-gradient(90deg, var(--c-grey-900), var(--c-grey-950));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: var(--spacing-200);
   }
 }
 
@@ -63,3 +70,27 @@
     font size 16px
     line height 20px
 */
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 33.75rem;
+}
+
+/* Header */
+.title {
+  font-size: clamp(1rem, 0.8239rem + 0.7512vw, 1.5rem);
+  line-height: 1.25;
+  text-align: center;
+  color: var(--c-grey-600);
+  margin-block-end: var(--spacing-200);
+
+  @media (min-width: 43.75rem) {
+    margin-block-end: var(--spacing-400);
+  }
+}
+
+/* Output container */
+.output-container {
+  
+}
