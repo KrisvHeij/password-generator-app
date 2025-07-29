@@ -1,5 +1,14 @@
 @layer global {
-  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+  }
 }
 
 @layer colors {
@@ -19,9 +28,3 @@
     --c-red: hsl(0 91% 63%);
   }
 }
-/* .jetbrains-mono-<uniquifier> {
-  font-family: "JetBrains Mono", monospace;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-} */
