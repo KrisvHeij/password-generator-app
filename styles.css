@@ -7,6 +7,10 @@
     padding: 0;
   }
 
+  img {
+    max-width: 100%;
+  }
+
   body {
     font-family: "JetBrains Mono", monospace;
     font-weight: 700;
@@ -92,5 +96,38 @@
 
 /* Output container */
 .output-container {
-  
+  background-color: var(--c-grey-800);
+  display: flex;
+  align-items: center;
+  padding-block: var(--spacing-200);
+  padding-inline: clamp(1rem, 4.9231vw + -.1538rem, 2rem);
 }
+
+.password-placeholder {
+  margin-inline-end: auto;
+  font-size: clamp(1.5rem, 2.4615vw + .9231rem, 2rem);
+  color: var(--c-grey-700);
+}
+
+.copy-text {
+  color: var(--c-green); 
+}
+
+.copy-btn {
+  margin-inline-start: var(--spacing-100);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.copy-btn img {
+  height: 1.25rem;
+}
+
+
+
+/* Classes for JS */
+/* .hidden {
+  display: none;
+} */
