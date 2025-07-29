@@ -8,6 +8,7 @@
   body {
     font-family: "JetBrains Mono", monospace;
     font-weight: 700;
+    height: 100vh;
   }
 }
 
@@ -28,3 +29,37 @@
     --c-red: hsl(0 91% 63%);
   }
 }
+
+@layer spacing { 
+  :root {
+    --spacing-100: 0.5rem; 
+    --spacing-200: 1rem;
+    --spacing-300: 1.5rem;
+    --spacing-400: 2rem;
+    --spacing-700: 3.5rem;
+    --spacing-1000: 5rem;
+    --spacing-1300: 6.5rem;
+    --spacing-1600: 8rem;
+    --spacing-2000: 10rem;
+    --spacing-2200: 11rem;
+    --spacing-2300: 11.5rem;
+  }
+}
+
+/* Typography remove when done
+  text preset 1 
+    font size 32px
+    line height 42px
+
+  text preset 2
+    font size 24px
+    line height 32px
+
+  text preset 3
+    font size 18px
+    line height 24px
+
+  text preset 4
+    font size 16px
+    line height 20px
+*/
