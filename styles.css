@@ -143,6 +143,7 @@
   background-color: var(--c-grey-800);
 }
 
+/* Character-length */
 .character-length {
   margin-block-end: var(--spacing-400);
 }
@@ -182,7 +183,34 @@
   cursor: pointer;
 }
 
+/* Password-options */
+.password-options {
+  margin-block-end: var(--spacing-400);
+}
 
+.password-options .option:not(:last-of-type) {
+  margin-block-end: var(--spacing-200);
+}
+
+.password-options .option input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--c-grey-200);
+  margin-right: clamp(.5rem, 2.4615vw + -.0769rem, 1rem);
+  vertical-align: middle;
+  position: relative;
+  cursor: pointer;
+}
+
+.password-options .option input:checked {
+  /* background-color: #007bff;
+  background-image: url();
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%; */
+}
 
 /* Classes for JS */
 .hidden {
