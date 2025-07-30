@@ -87,11 +87,8 @@
   line-height: 1.25;
   text-align: center;
   color: var(--c-grey-600);
-  margin-block-end: var(--spacing-200);
+  margin-block-end: clamp(1rem, 4.9231vw + -.1538rem, 2rem);
 
-  @media (min-width: 43.75rem) {
-    margin-block-end: var(--spacing-400);
-  }
 }
 
 /* Output container */
@@ -99,6 +96,7 @@
   background-color: var(--c-grey-800);
   display: flex;
   align-items: center;
+  margin-block-end: clamp(1rem, 2.4615vw + .4231rem, 1.5rem);
   padding-block: var(--spacing-200);
   padding-inline: clamp(1rem, 4.9231vw + -.1538rem, 2rem);
 }
@@ -110,6 +108,8 @@
 }
 
 .copy-text {
+  font-size: clamp(1rem, .6154vw + .8558rem, 1.125rem);
+  line-height: clamp(1.25rem, 1.2308vw + .9615rem, 1.5rem);
   color: var(--c-green); 
 }
 
@@ -124,10 +124,51 @@
 .copy-btn img {
   height: 1.25rem;
 }
+/* Hover & active state for copy-btn */
+.copy-btn:hover img,
+.copy-btn:active img {
+  filter: brightness(2);
+}
+
+/* Options container */
+/* All labels */
+.options-container label {
+  font-size: clamp(1rem, .6154vw + .8558rem, 1.125rem);
+  line-height: clamp(1.25rem, 1.2308vw + .9615rem, 1.5rem);
+  color: var(--c-grey-200);
+}
+
+.options-container {
+  padding: var(--spacing-200);
+  background-color: var(--c-grey-800);
+}
+
+.character-length label {
+  display: flex;
+}
+
+.character-length span {
+  font-size: clamp(1.5rem, 2.4615vw + .9231rem, 2rem);
+  line-height: clamp(2rem, 3.0769vw + 1.2788rem, 2.625rem);
+  color: var(--c-green);
+  margin-inline-start: auto;
+  margin-inline-end: clamp(1rem, -4.9231vw + 2.1538rem, 0rem);
+}
+
+.character-length input {
+  width: 100%;
+  -webkit-appearance: none;
+  height: 0.5rem;
+  background-color: var(--c-grey-850);
+}
+
+.character-length input::-webkit-slider-thumb {
+  
+}
 
 
 
 /* Classes for JS */
-/* .hidden {
+.hidden {
   display: none;
-} */
+}
