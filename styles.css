@@ -143,6 +143,10 @@
   background-color: var(--c-grey-800);
 }
 
+.character-length {
+  margin-block-end: var(--spacing-400);
+}
+
 .character-length label {
   display: flex;
 }
@@ -155,15 +159,27 @@
   margin-inline-end: clamp(1rem, -4.9231vw + 2.1538rem, 0rem);
 }
 
+/* Range input */
 .character-length input {
-  width: 100%;
   -webkit-appearance: none;
+  width: 100%;
   height: 0.5rem;
+  outline: none;
   background-color: var(--c-grey-850);
 }
-
 .character-length input::-webkit-slider-thumb {
-  
+  -webkit-appearance: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background-color: var(--c-grey-200);
+  cursor: pointer;
+}
+.character-length input::-moz-range-thumb {
+  width: 1.75rem;
+  height: 1.75rem;
+  background-color: var(--c-grey-200);
+  cursor: pointer;
 }
 
 
