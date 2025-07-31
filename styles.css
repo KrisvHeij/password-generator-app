@@ -182,6 +182,13 @@
   background-color: var(--c-grey-200);
   cursor: pointer;
 }
+.character-length input:active::-webkit-slider-thumb {
+  background-color: var(--c-grey-850);
+  border: 2px solid var(--c-green);
+}
+.character-length input::-moz-progress-bar {
+  background-color: var(--c-green);
+}
 
 /* Password-options */
 .password-options {
@@ -204,12 +211,16 @@
   cursor: pointer;
 }
 
+.password-options .option input:hover {
+  border-color: var(--c-green);
+}
+
 .password-options .option input:checked {
-  /* background-color: #007bff;
-  background-image: url();
+  background-color: var(--c-green);
+  border-color: var(--c-green);
+  background-image: url(./assets/images/icon-check.svg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 60%; */
 }
 
 /* Classes for JS */
