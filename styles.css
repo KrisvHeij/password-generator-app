@@ -228,6 +228,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-block-end: clamp(1rem, 4.9231vw + -.1538rem, 2rem);
   padding-block: clamp(1rem, 2.4615vw + .4231rem, 1.5rem);
   padding-inline: clamp(1rem, 4.9231vw + -.1538rem, 2rem);
   background-color: var(--c-grey-850);
@@ -279,6 +280,43 @@
 }
 
 /* Generate button */
+.generate-btn {
+  display: block;
+  width: 100%;
+  padding-block: var(--spacing-200);
+  background-color: var(--c-green);
+  color: var(--c-grey-800);
+  border: 2px solid transparent;
+  outline: 0;
+  font-family: inherit;
+  text-transform: uppercase;
+  font-size: clamp(1rem, .6154vw + .8558rem, 1.125rem);
+  font-weight: inherit;
+  line-height: clamp(1.25rem, 1.2308vw + .9615rem, 1.5rem);
+  cursor: pointer;
+}
+.btn-arrow {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-inline-start: clamp(.5rem, 2.4615vw + -.0769rem, 1rem);
+  mask-image: url(./assets/images/icon-arrow-right.svg);
+  mask-repeat: no-repeat;
+  mask-size: cover;
+  background-color: var(--c-grey-800);
+}
+
+.generate-btn:hover, 
+.generate-btn:active {
+  color: var(--c-green);
+  background-color: var(--c-grey-800);
+  border-color: var(--c-green);
+  transition: all 250ms ease;
+}
+.generate-btn:hover .btn-arrow {
+  background-color: var(--c-green);
+}
+
 
 
 /* Classes for JS */
