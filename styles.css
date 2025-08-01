@@ -223,6 +223,64 @@
   background-position: center;
 }
 
+/* Strength container */
+.strength-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: clamp(1rem, 2.4615vw + .4231rem, 1.5rem);
+  padding-inline: clamp(1rem, 4.9231vw + -.1538rem, 2rem);
+  background-color: var(--c-grey-850);
+}
+
+.strength-container p {
+  color: var(--c-grey-600);
+  text-transform: uppercase;
+}
+
+.strength-display {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-200);
+}
+
+.strength-levels {
+  display: flex;
+  gap: var(--spacing-100);
+}
+
+.level-text {
+  font-size: clamp(1.125rem, 1.8462vw + .6923rem, 1.5rem);
+  line-height: clamp(1.5rem, 2.4615vw + .9231rem, 2rem);
+  color: var(--c-grey-200); 
+}
+
+.level {
+  width: 0.625rem;
+  height: 1.75rem;
+  border: 2px solid var(--c-grey-200);
+}
+/* Level colors */
+.level-red {
+  background-color: var(--c-red);
+  border-color: var(--c-red);
+}
+.level-orange {
+  background-color: var(--c-orange);
+  border-color: var(--c-orange);
+}
+.level-yellow {
+  background-color: var(--c-yellow);
+  border-color: var(--c-yellow);
+}
+.level-green {
+  background-color: var(--c-green);
+  border-color: var(--c-green);
+}
+
+/* Generate button */
+
+
 /* Classes for JS */
 .hidden {
   display: none;
