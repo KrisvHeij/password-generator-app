@@ -163,6 +163,7 @@
 /* Range input */
 .character-length input {
   -webkit-appearance: none;
+  appearance: none;
   width: 100%;
   height: 0.5rem;
   outline: none;
@@ -170,6 +171,7 @@
 }
 .character-length input::-webkit-slider-thumb {
   -webkit-appearance: none;
+  appearance: none;
   width: 1.75rem;
   height: 1.75rem;
   border-radius: 50%;
