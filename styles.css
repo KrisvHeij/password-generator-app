@@ -167,7 +167,7 @@
   width: 100%;
   height: 0.5rem;
   outline: none;
-  background-color: var(--c-grey-850);
+  background: #191820;
 }
 .character-length input::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -175,13 +175,13 @@
   width: 1.75rem;
   height: 1.75rem;
   border-radius: 50%;
-  background-color: var(--c-grey-200);
+  background: var(--c-grey-200);
   cursor: pointer;
 }
 .character-length input::-moz-range-thumb {
   width: 1.75rem;
   height: 1.75rem;
-  background-color: var(--c-grey-200);
+  background: var(--c-grey-200);
   cursor: pointer;
 }
 .character-length input:active::-webkit-slider-thumb {
