@@ -23,6 +23,6 @@ rangeSlider.addEventListener("input", () => {
   updateSlider();
 })
 
-updateSlider();
+// updateSlider();
 
 
