@@ -31,31 +31,32 @@ function updateCharNumber () {
   charNumberEL.textContent = charLength;
 }
 
-function updatePasswordStrength () {
-  strengthLevelEl.forEach((level) => {
-    level.classList.remove("level-red", "level-orange", "level-yellow", "level-green");
-  })
+// Strength level based only on character length
+// function updatePasswordStrength () {
+//   strengthLevelEl.forEach((level) => {
+//     level.classList.remove("level-red", "level-orange", "level-yellow", "level-green");
+//   })
 
-  if (charLength <= 5) {
-    strengthTextEl.textContent = passwordStrength[0];
-    strengthLevelEl[0].classList.add("level-red");
-  } else if (charLength > 5 && charLength <= 9) {
-    strengthTextEl.textContent = passwordStrength[1];
-    for (let i = 0; i < 2; i++) {
-      strengthLevelEl[i].classList.add("level-orange");
-    }
-  } else if (charLength > 9 && charLength <= 14) {
-    strengthTextEl.textContent = passwordStrength[2];
-    for (let i = 0; i < 3; i++) {
-      strengthLevelEl[i].classList.add("level-yellow");
-    }
-  } else if (charLength > 14 && charLength <=20) {
-    strengthTextEl.textContent = passwordStrength[3];
-    for (let i = 0; i < 4; i++) {
-      strengthLevelEl[i].classList.add("level-green");
-    }
-  }
-}
+//   if (charLength <= 5) {
+//     strengthTextEl.textContent = passwordStrength[0];
+//     strengthLevelEl[0].classList.add("level-red");
+//   } else if (charLength > 5 && charLength <= 9) {
+//     strengthTextEl.textContent = passwordStrength[1];
+//     for (let i = 0; i < 2; i++) {
+//       strengthLevelEl[i].classList.add("level-orange");
+//     }
+//   } else if (charLength > 9 && charLength <= 14) {
+//     strengthTextEl.textContent = passwordStrength[2];
+//     for (let i = 0; i < 3; i++) {
+//       strengthLevelEl[i].classList.add("level-yellow");
+//     }
+//   } else if (charLength > 14 && charLength <=20) {
+//     strengthTextEl.textContent = passwordStrength[3];
+//     for (let i = 0; i < 4; i++) {
+//       strengthLevelEl[i].classList.add("level-green");
+//     }
+//   }
+// }
 
 rangeSlider.addEventListener("input", () => {
   charLength = Number(rangeSlider.value);
