@@ -14,12 +14,7 @@ const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
 const symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
 
-const passwordStrength = [
-  {word: "TOO WEAK!", value: 0},
-  {word: "WEAK", value: 1},
-  {word: "MEDIUM", value: 2},
-  {word: "STRONG", value: 3}
-];
+const passwordStrength = ["TOO WEAK!", "WEAK", "MEDIUM", "STRONG"];
 
 
 function updateSlider () {
@@ -38,18 +33,28 @@ function updateCharNumber () {
 
 function updatePasswordStrength () {
   strengthLevelEl.forEach((level) => {
-    level.classList.remove("level-red", "level-orange", "level-green");
+    level.classList.remove("level-red", "level-orange", "level-yellow", "level-green");
   })
 
   if (charLength <= 5) {
-    strengthTextEl.textContent = passwordStrength[0].word;
-    strengthLevelEl[passwordStrength[0].value].classList.add("level-red");
-  } else if (charLength > 5 && charLength < 10) {
-    strengthTextEl.textContent = passwordStrength[1].word;
+    strengthTextEl.textContent = passwordStrength[0];
+    strengthLevelEl[0].classList.add("level-red");
+  } else if (charLength > 5 && charLength <= 9) {
+    strengthTextEl.textContent = passwordStrength[1];
     for (let i = 0; i < 2; i++) {
-      strengthLevelEl[passwordStrength[i].value].classList.add("level-orange");
+      strengthLevelEl[i].classList.add("level-orange");
     }
-  } 
+  } else if (charLength > 9 && charLength <= 14) {
+    strengthTextEl.textContent = passwordStrength[2];
+    for (let i = 0; i < 3; i++) {
+      strengthLevelEl[i].classList.add("level-yellow");
+    }
+  } else if (charLength > 14 && charLength <=20) {
+    strengthTextEl.textContent = passwordStrength[3];
+    for (let i = 0; i < 4; i++) {
+      strengthLevelEl[i].classList.add("level-green");
+    }
+  }
 }
 
 rangeSlider.addEventListener("input", () => {
