@@ -1,5 +1,7 @@
 const rangeSlider = document.getElementById("char-length");
 const charNumberEL = document.querySelector(".length-number");
+const strengthTextEl = document.getElementById("strength-text");
+const strengthLevelEl = document.querySelectorAll(".level");
 let charLength;
 
 const letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -34,11 +36,28 @@ function updateCharNumber () {
   charNumberEL.textContent = charLength;
 }
 
+function updatePasswordStrength () {
+  strengthLevelEl.forEach((level) => {
+    level.classList.remove("level-red", "level-orange", "level-green");
+  })
+
+  if (charLength <= 5) {
+    strengthTextEl.textContent = passwordStrength[0].word;
+    strengthLevelEl[passwordStrength[0].value].classList.add("level-red");
+  } else if (charLength > 5 && charLength < 10) {
+    strengthTextEl.textContent = passwordStrength[1].word;
+    for (let i = 0; i < 2; i++) {
+      strengthLevelEl[passwordStrength[i].value].classList.add("level-orange");
+    }
+  } 
+}
+
 rangeSlider.addEventListener("input", () => {
-  charLength = rangeSlider.value;
+  charLength = Number(rangeSlider.value);
   updateCharNumber();
   updateSlider();
-  console.log(upperCaseLetters());
+  updatePasswordStrength();
+  
 })
 
 updateSlider();
