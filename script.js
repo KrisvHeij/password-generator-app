@@ -65,19 +65,7 @@ function updateCharNumber () {
 //   }
 // }
 
-rangeSlider.addEventListener("input", () => {
-  charLength = Number(rangeSlider.value);
-  updateCharNumber();
-  updateSlider();
-  // updatePasswordStrength();
-
-  // pw += symbols[generateRandom(symbols)];
-  // console.log(pw);
-  // console.log(upperCase);
-
-})
-
-btn.addEventListener("click", () => {
+function generatePassword () {
   let totalChars = [];
   let passwordChars = [];
   if (includeUpperCase.checked) {
@@ -91,16 +79,28 @@ btn.addEventListener("click", () => {
   }
   if (includeSymbols.checked) {
     totalChars = totalChars.concat(symbols);
+  } else {
+    totalChars = totalChars.concat(lowerCaseletters);
   }
 
   for (let i = 0; i < charLength; i++) {
-    passwordChars += totalChars[generateRandom(totalChars)]
-  }
+    passwordChars += totalChars[getRandomValues(totalChars)];
+  } 
 
   console.log(totalChars);
   console.log(passwordChars);
+}
+
+rangeSlider.addEventListener("input", () => {
+  charLength = Number(rangeSlider.value);
+  updateCharNumber();
+  updateSlider();
 })
 
-updateSlider();
+btn.addEventListener("click", () => {
+  generatePassword();
+})
+
+
 
 
