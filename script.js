@@ -2,12 +2,19 @@ const rangeSlider = document.getElementById("char-length");
 const charNumberEL = document.querySelector(".length-number");
 const strengthTextEl = document.getElementById("strength-text");
 const strengthLevelEl = document.querySelectorAll(".level");
+const btn = document.querySelector(".generate-btn");
+
+const includeUpperCase = document.getElementById("uppercase");
+const includeLowerCase = document.getElementById("lowercase");
+const includeNumbers = document.getElementById("numbers");
+const includeSymbols = document.getElementById("symbols");
+
 let charLength;
 let pw = [];
 
-const letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+const lowerCaseletters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 const upperCaseLetters = () => {
-  return letters.map((letter) => letter.toUpperCase())
+  return lowerCaseletters.map((letter) => letter.toUpperCase())
 };
 const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 const symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
@@ -64,8 +71,34 @@ rangeSlider.addEventListener("input", () => {
   updateSlider();
   // updatePasswordStrength();
 
-  pw += symbols[generateRandom(symbols)];
-  console.log(pw);
+  // pw += symbols[generateRandom(symbols)];
+  // console.log(pw);
+  // console.log(upperCase);
+
+})
+
+btn.addEventListener("click", () => {
+  let totalChars = [];
+  let passwordChars = [];
+  if (includeUpperCase.checked) {
+    totalChars = totalChars.concat(upperCaseLetters());
+  } 
+  if (includeLowerCase.checked) {
+    totalChars = totalChars.concat(lowerCaseletters);
+  }
+  if (includeNumbers.checked) {
+    totalChars = totalChars.concat(numbers);
+  }
+  if (includeSymbols.checked) {
+    totalChars = totalChars.concat(symbols);
+  }
+
+  for (let i = 0; i < charLength; i++) {
+    passwordChars += totalChars[generateRandom(totalChars)]
+  }
+
+  console.log(totalChars);
+  console.log(passwordChars);
 })
 
 updateSlider();
