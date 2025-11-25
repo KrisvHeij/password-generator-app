@@ -1,6 +1,7 @@
 const passwordEl = document.getElementById("password");
 const copyTextEL = document.getElementById("copy-text");
 const copyBtn = document.getElementById("copy-btn");
+const optionsContainer = document.querySelector(".options-container");
 const rangeSlider = document.getElementById("char-length");
 const charNumberEL = document.querySelector(".length-number");
 const strengthTextEl = document.getElementById("strength-text");
@@ -81,6 +82,7 @@ function updatePasswordStrength (chars) {
 }
 
 function generatePassword (length) {
+  
   let totalChars = [];
   let password = [];
   
@@ -108,8 +110,10 @@ function generatePassword (length) {
     password.push(totalChars[index]);
   })
 
-  passwordEl.textContent = password.join("");
-  passwordEl.style.color = "var(--c-grey-200)"
+  console.log(password)
+    passwordEl.textContent = password.join("");
+    passwordEl.style.color = "var(--c-grey-200)";
+  
 }
 
 function copyPassword () {
@@ -120,8 +124,12 @@ function copyPassword () {
       copyTextEL.classList.remove("hidden");
     })
     .catch(() => {
-      console.error("Failed to copy", err);
+      console.error("Failed to copy");
     })
+}
+
+function reset () {
+  copyTextEL.classList.add("hidden");
 }
 
 rangeSlider.addEventListener("input", () => {
@@ -131,10 +139,15 @@ rangeSlider.addEventListener("input", () => {
 })
 
 generateBtn.addEventListener("click", () => {
+  reset();
   generatePassword(charLength);
   updatePasswordStrength(charLength);
 })
 
+copyBtn.addEventListener("click", () => {
+  copyPassword();
+});
 
-
-
+optionsContainer.addEventListener("change", () => {
+  reset();
+})
