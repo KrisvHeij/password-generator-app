@@ -1,3 +1,4 @@
+const passwordEl = document.getElementById("password");
 const rangeSlider = document.getElementById("char-length");
 const charNumberEL = document.querySelector(".length-number");
 const strengthTextEl = document.getElementById("strength-text");
@@ -8,7 +9,7 @@ const includeUpperCase = document.getElementById("uppercase");
 const includeLowerCase = document.getElementById("lowercase");
 const includeNumbers = document.getElementById("numbers");
 const includeSymbols = document.getElementById("symbols");
-
+const allOptions = [includeUpperCase, includeLowerCase, includeNumbers, includeSymbols];
 let charLength;
 let pw = [];
 
@@ -20,9 +21,11 @@ const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 const symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
 const passwordStrength = ["TOO WEAK!", "WEAK", "MEDIUM", "STRONG"];
 
-function generateRandom (arr) {
-  return Math.floor(Math.random() * arr.length);
-}
+
+// Replaced by getRandomValues()
+// function generateRandom (arr) {
+//   return Math.floor(Math.random() * arr.length);
+// }
 
 function updateSlider () {
   const val = Number(rangeSlider.value);
@@ -39,35 +42,46 @@ function updateCharNumber () {
 }
 
 // Strength level based only on character length
-// function updatePasswordStrength () {
-//   strengthLevelEl.forEach((level) => {
-//     level.classList.remove("level-red", "level-orange", "level-yellow", "level-green");
-//   })
+function updatePasswordStrength (chars) {
+  let totalOptions = 0;
+  // Remove all color classes
+  strengthLevelEl.forEach((level) => {
+    level.classList.remove("level-red", "level-orange", "level-yellow", "level-green");
+  })
 
-//   if (charLength <= 5) {
-//     strengthTextEl.textContent = passwordStrength[0];
-//     strengthLevelEl[0].classList.add("level-red");
-//   } else if (charLength > 5 && charLength <= 9) {
-//     strengthTextEl.textContent = passwordStrength[1];
-//     for (let i = 0; i < 2; i++) {
-//       strengthLevelEl[i].classList.add("level-orange");
-//     }
-//   } else if (charLength > 9 && charLength <= 14) {
-//     strengthTextEl.textContent = passwordStrength[2];
-//     for (let i = 0; i < 3; i++) {
-//       strengthLevelEl[i].classList.add("level-yellow");
-//     }
-//   } else if (charLength > 14 && charLength <=20) {
-//     strengthTextEl.textContent = passwordStrength[3];
-//     for (let i = 0; i < 4; i++) {
-//       strengthLevelEl[i].classList.add("level-green");
-//     }
-//   }
-// }
+  // Check how many options are checked
+  allOptions.forEach((option) => {
+    if (option.checked) {
+      totalOptions += 1;
+    }
+  })
+  
+  // Show strength levels
+  function showStrength (textIndex, color, count) {
+    strengthTextEl.textContent = passwordStrength[textIndex];
+    for (let i = 0; i < count; i++) {
+      strengthLevelEl[i].classList.add(color);
+    }
+  }
 
-function generatePassword () {
+  if (chars > 15 && totalOptions >=3) {
+    showStrength(3, "level-green", 4);
+  } else if (chars > 9 && totalOptions >= 2) {
+    showStrength(2, "level-yellow", 3);
+  } else if (chars > 5 && totalOptions >= 2) {
+    showStrength(1, "level-orange", 2);
+  } else {
+    showStrength(0, "level-red", 1);
+  } 
+
+  console.log(chars)
+  console.log(totalOptions)
+}
+
+function generatePassword (length) {
   let totalChars = [];
-  let passwordChars = [];
+  let password = [];
+  
   if (includeUpperCase.checked) {
     totalChars = totalChars.concat(upperCaseLetters());
   } 
@@ -83,12 +97,17 @@ function generatePassword () {
     totalChars = totalChars.concat(lowerCaseletters);
   }
 
-  for (let i = 0; i < charLength; i++) {
-    passwordChars += totalChars[getRandomValues(totalChars)];
-  } 
+  const randomChars = new Uint8Array(length);
 
-  console.log(totalChars);
-  console.log(passwordChars);
+  crypto.getRandomValues(randomChars);
+
+  randomChars.forEach((char) => {
+    const index = char % totalChars.length;
+    password.push(totalChars[index]);
+  })
+
+
+  return password.join("");
 }
 
 rangeSlider.addEventListener("input", () => {
@@ -98,7 +117,8 @@ rangeSlider.addEventListener("input", () => {
 })
 
 btn.addEventListener("click", () => {
-  generatePassword();
+  console.log(generatePassword(charLength));
+  updatePasswordStrength(charLength);
 })
 
 
