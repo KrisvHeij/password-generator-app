@@ -1,9 +1,11 @@
 const passwordEl = document.getElementById("password");
+const copyTextEL = document.getElementById("copy-text");
+const copyBtn = document.getElementById("copy-btn");
 const rangeSlider = document.getElementById("char-length");
 const charNumberEL = document.querySelector(".length-number");
 const strengthTextEl = document.getElementById("strength-text");
 const strengthLevelEl = document.querySelectorAll(".level");
-const btn = document.querySelector(".generate-btn");
+const generateBtn = document.querySelector(".generate-btn");
 
 const includeUpperCase = document.getElementById("uppercase");
 const includeLowerCase = document.getElementById("lowercase");
@@ -64,7 +66,7 @@ function updatePasswordStrength (chars) {
     }
   }
 
-  if (chars > 15 && totalOptions >=3) {
+  if (chars > 14 && totalOptions >=3) {
     showStrength(3, "level-green", 4);
   } else if (chars > 9 && totalOptions >= 2) {
     showStrength(2, "level-yellow", 3);
@@ -106,8 +108,20 @@ function generatePassword (length) {
     password.push(totalChars[index]);
   })
 
+  passwordEl.textContent = password.join("");
+  passwordEl.style.color = "var(--c-grey-200)"
+}
 
-  return password.join("");
+function copyPassword () {
+  const password = passwordEl.textContent || passwordEl.value;
+
+  navigator.clipboard.writeText(password)
+    .then(() => {
+      copyTextEL.classList.remove("hidden");
+    })
+    .catch(() => {
+      console.error("Failed to copy", err);
+    })
 }
 
 rangeSlider.addEventListener("input", () => {
@@ -116,8 +130,8 @@ rangeSlider.addEventListener("input", () => {
   updateSlider();
 })
 
-btn.addEventListener("click", () => {
-  console.log(generatePassword(charLength));
+generateBtn.addEventListener("click", () => {
+  generatePassword(charLength);
   updatePasswordStrength(charLength);
 })
 
