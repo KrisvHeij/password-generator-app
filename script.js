@@ -14,14 +14,14 @@ const includeNumbers = document.getElementById("numbers");
 const includeSymbols = document.getElementById("symbols");
 const allOptions = [includeUpperCase, includeLowerCase, includeNumbers, includeSymbols];
 let charLength;
-let pw = [];
 
-const lowerCaseletters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-const upperCaseLetters = () => {
-  return lowerCaseletters.map((letter) => letter.toUpperCase())
-};
-const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-const symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
+// const lowerCaseletters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+const lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+const upperCaseLetters = lowerCaseLetters.toUpperCase();
+// const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+const numbers = "1234567890";
+// const symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
+const symbols = "!@#$%^&*()";
 const passwordStrength = ["TOO WEAK!", "WEAK", "MEDIUM", "STRONG"];
 
 
@@ -90,7 +90,7 @@ function generatePassword (length) {
     totalChars = totalChars.concat(upperCaseLetters());
   } 
   if (includeLowerCase.checked) {
-    totalChars = totalChars.concat(lowerCaseletters);
+    totalChars = totalChars.concat(lowerCaseLetters);
   }
   if (includeNumbers.checked) {
     totalChars = totalChars.concat(numbers);
@@ -98,7 +98,7 @@ function generatePassword (length) {
   if (includeSymbols.checked) {
     totalChars = totalChars.concat(symbols);
   } else {
-    totalChars = totalChars.concat(lowerCaseletters);
+    totalChars = totalChars.concat(lowerCaseLetters);
   }
 
   const randomChars = new Uint8Array(length);
@@ -151,3 +151,5 @@ copyBtn.addEventListener("click", () => {
 optionsContainer.addEventListener("change", () => {
   reset();
 })
+
+updateSlider();
