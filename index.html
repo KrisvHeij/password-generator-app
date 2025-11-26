@@ -27,7 +27,12 @@
         <p id="password" class="password-placeholder">P4$5W0rD!</p>
         <div>
           <span id="copy-text" class="copy-text hidden">COPIED</span>
-          <button id="copy-btn" class="copy-btn" type="button">
+          <button
+            id="copy-btn"
+            class="copy-btn"
+            type="button"
+            aria-label="Copy password"
+          >
             <img src="./assets/images/icon-copy.svg" />
           </button>
         </div>
@@ -35,13 +40,13 @@
       <div class="options-container">
         <div class="character-length">
           <label for="char-length"
-            >Character Length<span class="length-number">0</span></label
+            >Character Length<span class="length-number">5</span></label
           >
           <input
             id="char-length"
             name="char-length"
             type="range"
-            value="0"
+            value="5"
             min="0"
             max="20"
             step="1"
@@ -70,10 +75,10 @@
           <div class="strength-display">
             <span id="strength-text" class="level-text"></span>
             <div class="strength-levels">
-              <div class="level"></div>
-              <div class="level"></div>
-              <div class="level"></div>
-              <div class="level"></div>
+              <div class="level" aria-hidden="true"></div>
+              <div class="level" aria-hidden="true"></div>
+              <div class="level" aria-hidden="true"></div>
+              <div class="level" aria-hidden="true"></div>
             </div>
           </div>
         </div>
