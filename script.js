@@ -13,30 +13,19 @@ const includeLowerCase = document.getElementById("lowercase");
 const includeNumbers = document.getElementById("numbers");
 const includeSymbols = document.getElementById("symbols");
 const allOptions = [includeUpperCase, includeLowerCase, includeNumbers, includeSymbols];
-let charLength;
+let charLength = Number(rangeSlider.value);
 
-// const lowerCaseletters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 const lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
 const upperCaseLetters = lowerCaseLetters.toUpperCase();
-// const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 const numbers = "1234567890";
-// const symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
 const symbols = "!@#$%^&*()";
 const passwordStrength = ["TOO WEAK!", "WEAK", "MEDIUM", "STRONG"];
 
-
-// Replaced by getRandomValues()
-// function generateRandom (arr) {
-//   return Math.floor(Math.random() * arr.length);
-// }
-
 function updateSlider () {
   const val = Number(rangeSlider.value);
-  // const min = Number(rangeSlider.min);
   const max = Number(rangeSlider.max);
   const percent = (val / max) * 100;
-  // const percent = ((val - min) / (max - min)) * 100;
-  // console.log(percent);
+
   rangeSlider.style.background = `linear-gradient(to right, #a3ffae ${percent}%, #191820 ${percent}%)`;
 }
 
@@ -76,29 +65,30 @@ function updatePasswordStrength (chars) {
   } else {
     showStrength(0, "level-red", 1);
   } 
-
-  console.log(chars)
-  console.log(totalOptions)
 }
 
 function generatePassword (length) {
   
-  let totalChars = [];
-  let password = [];
+  let totalChars = "";
+  let password = "";
   
   if (includeUpperCase.checked) {
-    totalChars = totalChars.concat(upperCaseLetters());
+    totalChars += upperCaseLetters;
   } 
   if (includeLowerCase.checked) {
-    totalChars = totalChars.concat(lowerCaseLetters);
+    totalChars += lowerCaseLetters;
   }
   if (includeNumbers.checked) {
-    totalChars = totalChars.concat(numbers);
+    totalChars += numbers;
   }
   if (includeSymbols.checked) {
-    totalChars = totalChars.concat(symbols);
-  } else {
-    totalChars = totalChars.concat(lowerCaseLetters);
+    totalChars += symbols;
+  } 
+
+  if (totalChars.length === 0) {
+    passwordEl.textContent = "No option selected";
+    passwordEl.style.color = "red";
+    return;
   }
 
   const randomChars = new Uint8Array(length);
@@ -107,12 +97,11 @@ function generatePassword (length) {
 
   randomChars.forEach((char) => {
     const index = char % totalChars.length;
-    password.push(totalChars[index]);
+    password += totalChars[index];
   })
 
-  console.log(password)
-    passwordEl.textContent = password.join("");
-    passwordEl.style.color = "var(--c-grey-200)";
+  passwordEl.textContent = password;
+  passwordEl.style.color = "var(--c-grey-200)";
   
 }
 
@@ -152,4 +141,5 @@ optionsContainer.addEventListener("change", () => {
   reset();
 })
 
+updateCharNumber();
 updateSlider();
