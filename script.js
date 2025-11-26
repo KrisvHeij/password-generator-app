@@ -69,7 +69,7 @@ function updatePasswordStrength (chars) {
 
   if (chars > 14 && totalOptions >=3) {
     showStrength(3, "level-green", 4);
-  } else if (chars > 9 && totalOptions >= 2) {
+  } else if (chars > 9 && totalOptions >= 3) {
     showStrength(2, "level-yellow", 3);
   } else if (chars > 5 && totalOptions >= 2) {
     showStrength(1, "level-orange", 2);

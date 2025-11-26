@@ -96,9 +96,14 @@
   background-color: var(--c-grey-800);
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   margin-block-end: clamp(1rem, 2.4615vw + .4231rem, 1.5rem);
   padding-block: var(--spacing-200);
   padding-inline: clamp(1rem, 4.9231vw + -.1538rem, 2rem);
+}
+
+.output-container div {
+  margin-left: auto;
 }
 
 .password-placeholder {
