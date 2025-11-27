@@ -33,7 +33,7 @@ function updateCharNumber () {
   charNumberEL.textContent = charLength;
 }
 
-// Strength level based only on character length
+// Strength level based only on character length & options
 function updatePasswordStrength (chars) {
   let totalOptions = 0;
   // Remove all color classes
@@ -67,6 +67,7 @@ function updatePasswordStrength (chars) {
   } 
 }
 
+// Generate & show password
 function generatePassword (length) {
   
   let totalChars = "";
@@ -105,6 +106,7 @@ function generatePassword (length) {
   
 }
 
+// Copy password to clipboard
 function copyPassword () {
   const password = passwordEl.textContent || passwordEl.value;
 
@@ -121,6 +123,7 @@ function reset () {
   copyTextEL.classList.add("hidden");
 }
 
+// EventListeners
 rangeSlider.addEventListener("input", () => {
   charLength = Number(rangeSlider.value);
   updateCharNumber();
