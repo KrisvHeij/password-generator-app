@@ -319,7 +319,7 @@
   color: var(--c-green);
   background-color: var(--c-grey-800);
   border-color: var(--c-green);
-  transition: color 250ms ease, background-color 250ms ease, border-color 250ms ease;
+  transition: all 250ms ease;
 }
 .generate-btn:hover .btn-arrow {
   background-color: var(--c-green);
