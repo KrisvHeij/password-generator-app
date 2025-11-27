@@ -24,14 +24,27 @@
     <main class="container">
       <h1 class="title">Password Generator</h1>
       <div class="output-container">
-        <p id="password" class="password-placeholder" aria-live="polite" aria-atomic="true">P4$5W0rD!</p>
-        <divaria-label="Copy password control" role="group">
-          <span id="copy-text" class="copy-text visually-hidden"aria-live="polite">COPIED</span>
+        <p
+          id="password"
+          class="password-placeholder"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          P4$5W0rD!
+        </p>
+        <div aria-label="Copy password control" role="group">
+          <span
+            id="copy-text"
+            class="copy-text visually-hidden"
+            aria-live="polite"
+            >COPIED</span
+          >
           <button
             id="copy-btn"
             class="copy-btn"
             type="button"
-            aria-label="Copy password" aria-describedby="copy-text"
+            aria-label="Copy password"
+            aria-describedby="copy-text"
           >
             <img src="./assets/images/icon-copy.svg" alt="" />
           </button>
@@ -40,7 +53,9 @@
       <div class="options-container">
         <div class="character-length">
           <label for="char-length"
-            >Character Length<span class="length-number" aria-live="polite">5</span></label
+            >Character Length<span class="length-number" aria-live="polite"
+              >5</span
+            ></label
           >
           <input
             id="char-length"
