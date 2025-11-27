@@ -14,7 +14,7 @@
   body {
     font-family: "JetBrains Mono", monospace;
     font-weight: 700;
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(90deg, var(--c-grey-900), var(--c-grey-950));
     display: flex;
     justify-content: center;
@@ -200,13 +200,14 @@
 /* Password-options */
 .password-options {
   margin-block-end: var(--spacing-400);
+  border: none;
 }
 
-.password-options .option:not(:last-of-type) {
+.option:not(:last-of-type) {
   margin-block-end: var(--spacing-200);
 }
 
-.password-options .option input {
+.option input {
   appearance: none;
   -webkit-appearance: none;
   width: 20px;
@@ -218,11 +219,11 @@
   cursor: pointer;
 }
 
-.password-options .option input:hover {
+.option input:hover {
   border-color: var(--c-green);
 }
 
-.password-options .option input:checked {
+.option input:checked {
   background-color: var(--c-green);
   border-color: var(--c-green);
   background-image: url(./assets/images/icon-check.svg);
@@ -241,7 +242,8 @@
   background-color: var(--c-grey-850);
 }
 
-.strength-container p {
+.strength-container h2 {
+  font-size: 1rem;
   color: var(--c-grey-600);
   text-transform: uppercase;
 }
@@ -317,13 +319,13 @@
   color: var(--c-green);
   background-color: var(--c-grey-800);
   border-color: var(--c-green);
-  transition: all 250ms ease;
+  transition: color 250ms ease, background-color 250ms ease, border-color 250ms ease;
 }
 .generate-btn:hover .btn-arrow {
   background-color: var(--c-green);
 }
 
 /* Classes for JS */
-.hidden {
+.visually-hidden {
   display: none;
 }

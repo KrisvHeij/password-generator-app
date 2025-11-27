@@ -24,23 +24,23 @@
     <main class="container">
       <h1 class="title">Password Generator</h1>
       <div class="output-container">
-        <p id="password" class="password-placeholder">P4$5W0rD!</p>
-        <div>
-          <span id="copy-text" class="copy-text hidden">COPIED</span>
+        <p id="password" class="password-placeholder" aria-live="polite" aria-atomic="true">P4$5W0rD!</p>
+        <divaria-label="Copy password control" role="group">
+          <span id="copy-text" class="copy-text visually-hidden"aria-live="polite">COPIED</span>
           <button
             id="copy-btn"
             class="copy-btn"
             type="button"
-            aria-label="Copy password"
+            aria-label="Copy password" aria-describedby="copy-text"
           >
-            <img src="./assets/images/icon-copy.svg" />
+            <img src="./assets/images/icon-copy.svg" alt="" />
           </button>
         </div>
       </div>
       <div class="options-container">
         <div class="character-length">
           <label for="char-length"
-            >Character Length<span class="length-number">5</span></label
+            >Character Length<span class="length-number" aria-live="polite">5</span></label
           >
           <input
             id="char-length"
@@ -52,7 +52,8 @@
             step="1"
           />
         </div>
-        <div class="password-options">
+        <fieldset class="password-options">
+          <legend class="visually-hidden">Password Options</legend>
           <div class="option">
             <input id="uppercase" name="uppercase" type="checkbox" />
             <label for="uppercase">Include Uppercase Letters</label>
@@ -69,22 +70,26 @@
             <input id="symbols" name="symbols" type="checkbox" />
             <label for="symbols">Include Symbols</label>
           </div>
-        </div>
+        </fieldset>
         <div class="strength-container">
-          <p>Strength</p>
-          <div class="strength-display">
+          <h2 id="strength-label">Strength</h2>
+          <div
+            class="strength-display"
+            role="status"
+            aria-labelledby="strength-label"
+          >
             <span id="strength-text" class="level-text"></span>
-            <div class="strength-levels">
-              <div class="level" aria-hidden="true"></div>
-              <div class="level" aria-hidden="true"></div>
-              <div class="level" aria-hidden="true"></div>
-              <div class="level" aria-hidden="true"></div>
+            <div class="strength-levels" aria-hidden="true">
+              <div class="level"></div>
+              <div class="level"></div>
+              <div class="level"></div>
+              <div class="level"></div>
             </div>
           </div>
         </div>
         <button class="generate-btn" type="button">
           Generate
-          <span class="btn-arrow"></span>
+          <span class="btn-arrow" aria-hidden="true"></span>
         </button>
       </div>
     </main>

@@ -112,7 +112,7 @@ function copyPassword () {
 
   navigator.clipboard.writeText(password)
     .then(() => {
-      copyTextEL.classList.remove("hidden");
+      copyTextEL.classList.remove("visually-hidden");
     })
     .catch(() => {
       console.error("Failed to copy");
@@ -120,7 +120,7 @@ function copyPassword () {
 }
 
 function reset () {
-  copyTextEL.classList.add("hidden");
+  copyTextEL.classList.add("visually-hidden");
 }
 
 // EventListeners
